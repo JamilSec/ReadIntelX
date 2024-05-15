@@ -50,6 +50,9 @@
             this.documentacionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lblPalabraBuscar = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.lblEncontrados = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.pgbProceso = new System.Windows.Forms.ProgressBar();
             this.panel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -70,6 +73,9 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.pgbProceso);
+            this.groupBox2.Controls.Add(this.lblEncontrados);
+            this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.lblPalabraBuscar);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.lblEstado);
@@ -201,8 +207,8 @@
             // 
             this.buscarToolStripMenuItem.Name = "buscarToolStripMenuItem";
             this.buscarToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.B)));
-            this.buscarToolStripMenuItem.Size = new System.Drawing.Size(265, 26);
-            this.buscarToolStripMenuItem.Text = "Explorar Archivos";
+            this.buscarToolStripMenuItem.Size = new System.Drawing.Size(284, 26);
+            this.buscarToolStripMenuItem.Text = "Archivos Procesados";
             // 
             // contactoToolStripMenuItem
             // 
@@ -263,6 +269,34 @@
             this.label4.TabIndex = 2;
             this.label4.Text = "Texto interés :";
             // 
+            // lblEncontrados
+            // 
+            this.lblEncontrados.AutoSize = true;
+            this.lblEncontrados.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEncontrados.ForeColor = System.Drawing.SystemColors.ActiveBorder;
+            this.lblEncontrados.Location = new System.Drawing.Point(149, 52);
+            this.lblEncontrados.Name = "lblEncontrados";
+            this.lblEncontrados.Size = new System.Drawing.Size(106, 16);
+            this.lblEncontrados.TabIndex = 5;
+            this.lblEncontrados.Text = "Sin resultados";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(6, 50);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(221, 23);
+            this.label5.TabIndex = 4;
+            this.label5.Text = "Passwords encontradas :";
+            // 
+            // pgbProceso
+            // 
+            this.pgbProceso.Location = new System.Drawing.Point(9, 71);
+            this.pgbProceso.Name = "pgbProceso";
+            this.pgbProceso.Size = new System.Drawing.Size(233, 23);
+            this.pgbProceso.TabIndex = 6;
+            // 
             // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 16F);
@@ -313,6 +347,9 @@
         private System.Windows.Forms.Label lblEstado;
         private System.Windows.Forms.Label lblPalabraBuscar;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lblEncontrados;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ProgressBar pgbProceso;
     }
 }
 

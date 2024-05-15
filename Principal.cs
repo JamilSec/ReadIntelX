@@ -33,11 +33,17 @@ namespace ReadIntelX
         {
             abrirArchivo();
         }
-        private void btnIniciar_Click(object sender, EventArgs e)
+        private async void btnIniciar_Click(object sender, EventArgs e)
         {
+            pgbProceso.Value = 0; // Reiniciar el ProgressBar
+            pgbProceso.Maximum = 100; // Establecer el máximo en 100 para representar porcentajes
+
             actualizarEstadoUI(btnIniciar, false);
             actualizarEstadoUI(btnDetener, true);
             actualizarEstadoTexto(lblEstado, "Procesando...", Color.LimeGreen);
+            await ProcesarArchivosAsync(txtPath.Text, lblPalabraBuscar.Text, lblEncontrados, pgbProceso, this);
+            actualizarEstadoUI(btnDetener, false);
+            actualizarEstadoTexto(lblEstado, "Proceso completado", Color.DarkGreen);
         }
         private void btnDetener_Click(object sender, EventArgs e)
         {
