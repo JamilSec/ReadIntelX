@@ -31,6 +31,11 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Principal));
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.pgbProceso = new System.Windows.Forms.ProgressBar();
+            this.lblEncontrados = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.lblPalabraBuscar = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.lblEstado = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -40,19 +45,11 @@
             this.label1 = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.inicioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.abrirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.buscarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.contactoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.extraerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ayudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.acercaDeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.documentacionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.lblPalabraBuscar = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.lblEncontrados = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.pgbProceso = new System.Windows.Forms.ProgressBar();
+            this.abrirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -86,6 +83,55 @@
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             // 
+            // pgbProceso
+            // 
+            this.pgbProceso.Location = new System.Drawing.Point(9, 71);
+            this.pgbProceso.Name = "pgbProceso";
+            this.pgbProceso.Size = new System.Drawing.Size(233, 23);
+            this.pgbProceso.TabIndex = 6;
+            // 
+            // lblEncontrados
+            // 
+            this.lblEncontrados.AutoSize = true;
+            this.lblEncontrados.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEncontrados.ForeColor = System.Drawing.SystemColors.ActiveBorder;
+            this.lblEncontrados.Location = new System.Drawing.Point(149, 52);
+            this.lblEncontrados.Name = "lblEncontrados";
+            this.lblEncontrados.Size = new System.Drawing.Size(87, 13);
+            this.lblEncontrados.TabIndex = 5;
+            this.lblEncontrados.Text = "Sin resultados";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(6, 50);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(144, 15);
+            this.label5.TabIndex = 4;
+            this.label5.Text = "Passwords encontradas :";
+            // 
+            // lblPalabraBuscar
+            // 
+            this.lblPalabraBuscar.AutoSize = true;
+            this.lblPalabraBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPalabraBuscar.ForeColor = System.Drawing.SystemColors.ActiveBorder;
+            this.lblPalabraBuscar.Location = new System.Drawing.Point(90, 33);
+            this.lblPalabraBuscar.Name = "lblPalabraBuscar";
+            this.lblPalabraBuscar.Size = new System.Drawing.Size(57, 13);
+            this.lblPalabraBuscar.TabIndex = 3;
+            this.lblPalabraBuscar.Text = "Sin texto";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(6, 30);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(83, 15);
+            this.label4.TabIndex = 2;
+            this.label4.Text = "Texto interés :";
+            // 
             // lblEstado
             // 
             this.lblEstado.AutoSize = true;
@@ -93,7 +139,7 @@
             this.lblEstado.ForeColor = System.Drawing.SystemColors.ActiveBorder;
             this.lblEstado.Location = new System.Drawing.Point(55, 14);
             this.lblEstado.Name = "lblEstado";
-            this.lblEstado.Size = new System.Drawing.Size(75, 16);
+            this.lblEstado.Size = new System.Drawing.Size(63, 13);
             this.lblEstado.TabIndex = 1;
             this.lblEstado.Text = "Sin iniciar";
             // 
@@ -103,7 +149,7 @@
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(6, 12);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(67, 18);
+            this.label2.Size = new System.Drawing.Size(54, 15);
             this.label2.TabIndex = 0;
             this.label2.Text = "Estado : ";
             // 
@@ -147,7 +193,7 @@
             this.txtPath.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPath.Location = new System.Drawing.Point(51, 17);
             this.txtPath.Name = "txtPath";
-            this.txtPath.Size = new System.Drawing.Size(186, 22);
+            this.txtPath.Size = new System.Drawing.Size(186, 19);
             this.txtPath.TabIndex = 3;
             this.txtPath.Text = "Esperando ruta...";
             // 
@@ -157,7 +203,7 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(6, 18);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(46, 18);
+            this.label1.Size = new System.Drawing.Size(38, 15);
             this.label1.TabIndex = 2;
             this.label1.Text = "Path :";
             // 
@@ -167,12 +213,11 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.inicioToolStripMenuItem,
             this.logsToolStripMenuItem,
-            this.contactoToolStripMenuItem,
             this.ayudaToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(9, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(272, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(272, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -182,17 +227,8 @@
             this.abrirToolStripMenuItem});
             this.inicioToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.inicioToolStripMenuItem.Name = "inicioToolStripMenuItem";
-            this.inicioToolStripMenuItem.Size = new System.Drawing.Size(76, 24);
+            this.inicioToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
             this.inicioToolStripMenuItem.Text = "Archivo";
-            // 
-            // abrirToolStripMenuItem
-            // 
-            this.abrirToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.abrirToolStripMenuItem.Name = "abrirToolStripMenuItem";
-            this.abrirToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.A)));
-            this.abrirToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.abrirToolStripMenuItem.Text = "Abrir";
-            this.abrirToolStripMenuItem.Click += new System.EventHandler(this.abrirToolStripMenuItem_Click);
             // 
             // logsToolStripMenuItem
             // 
@@ -200,106 +236,46 @@
             this.buscarToolStripMenuItem});
             this.logsToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.logsToolStripMenuItem.Name = "logsToolStripMenuItem";
-            this.logsToolStripMenuItem.Size = new System.Drawing.Size(46, 24);
+            this.logsToolStripMenuItem.Size = new System.Drawing.Size(36, 20);
             this.logsToolStripMenuItem.Text = "Ver";
             // 
             // buscarToolStripMenuItem
             // 
             this.buscarToolStripMenuItem.Name = "buscarToolStripMenuItem";
             this.buscarToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.B)));
-            this.buscarToolStripMenuItem.Size = new System.Drawing.Size(284, 26);
+            this.buscarToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
             this.buscarToolStripMenuItem.Text = "Archivos Procesados";
-            // 
-            // contactoToolStripMenuItem
-            // 
-            this.contactoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.extraerToolStripMenuItem});
-            this.contactoToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.contactoToolStripMenuItem.Name = "contactoToolStripMenuItem";
-            this.contactoToolStripMenuItem.Size = new System.Drawing.Size(115, 24);
-            this.contactoToolStripMenuItem.Text = "Herramientas";
-            // 
-            // extraerToolStripMenuItem
-            // 
-            this.extraerToolStripMenuItem.Name = "extraerToolStripMenuItem";
-            this.extraerToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.extraerToolStripMenuItem.Text = "Extraer";
+            this.buscarToolStripMenuItem.Click += new System.EventHandler(this.buscarToolStripMenuItem_Click);
             // 
             // ayudaToolStripMenuItem
             // 
             this.ayudaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.acercaDeToolStripMenuItem,
-            this.documentacionToolStripMenuItem});
+            this.acercaDeToolStripMenuItem});
             this.ayudaToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ayudaToolStripMenuItem.Name = "ayudaToolStripMenuItem";
-            this.ayudaToolStripMenuItem.Size = new System.Drawing.Size(67, 24);
+            this.ayudaToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
             this.ayudaToolStripMenuItem.Text = "Ayuda";
             // 
             // acercaDeToolStripMenuItem
             // 
             this.acercaDeToolStripMenuItem.Name = "acercaDeToolStripMenuItem";
-            this.acercaDeToolStripMenuItem.Size = new System.Drawing.Size(254, 26);
+            this.acercaDeToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.D)));
+            this.acercaDeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.acercaDeToolStripMenuItem.Text = "Acerca de";
+            this.acercaDeToolStripMenuItem.Click += new System.EventHandler(this.acercaDeToolStripMenuItem_Click);
             // 
-            // documentacionToolStripMenuItem
+            // abrirToolStripMenuItem
             // 
-            this.documentacionToolStripMenuItem.Name = "documentacionToolStripMenuItem";
-            this.documentacionToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.D)));
-            this.documentacionToolStripMenuItem.Size = new System.Drawing.Size(254, 26);
-            this.documentacionToolStripMenuItem.Text = "Documentación";
-            // 
-            // lblPalabraBuscar
-            // 
-            this.lblPalabraBuscar.AutoSize = true;
-            this.lblPalabraBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPalabraBuscar.ForeColor = System.Drawing.SystemColors.ActiveBorder;
-            this.lblPalabraBuscar.Location = new System.Drawing.Point(90, 33);
-            this.lblPalabraBuscar.Name = "lblPalabraBuscar";
-            this.lblPalabraBuscar.Size = new System.Drawing.Size(66, 16);
-            this.lblPalabraBuscar.TabIndex = 3;
-            this.lblPalabraBuscar.Text = "Sin texto";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(6, 30);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(126, 23);
-            this.label4.TabIndex = 2;
-            this.label4.Text = "Texto interés :";
-            // 
-            // lblEncontrados
-            // 
-            this.lblEncontrados.AutoSize = true;
-            this.lblEncontrados.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEncontrados.ForeColor = System.Drawing.SystemColors.ActiveBorder;
-            this.lblEncontrados.Location = new System.Drawing.Point(149, 52);
-            this.lblEncontrados.Name = "lblEncontrados";
-            this.lblEncontrados.Size = new System.Drawing.Size(106, 16);
-            this.lblEncontrados.TabIndex = 5;
-            this.lblEncontrados.Text = "Sin resultados";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(6, 50);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(221, 23);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "Passwords encontradas :";
-            // 
-            // pgbProceso
-            // 
-            this.pgbProceso.Location = new System.Drawing.Point(9, 71);
-            this.pgbProceso.Name = "pgbProceso";
-            this.pgbProceso.Size = new System.Drawing.Size(233, 23);
-            this.pgbProceso.TabIndex = 6;
+            this.abrirToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.abrirToolStripMenuItem.Name = "abrirToolStripMenuItem";
+            this.abrirToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.A)));
+            this.abrirToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.abrirToolStripMenuItem.Text = "Abrir";
+            this.abrirToolStripMenuItem.Click += new System.EventHandler(this.abrirToolStripMenuItem_Click);
             // 
             // Principal
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(272, 222);
@@ -330,13 +306,10 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem inicioToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem logsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem contactoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ayudaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem abrirToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem buscarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem acercaDeToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem documentacionToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem extraerToolStripMenuItem;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtPath;

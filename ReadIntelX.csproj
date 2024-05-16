@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FormArchivosProcesados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormArchivosProcesados.Designer.cs">
+      <DependentUpon>FormArchivosProcesados.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormBuscar.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -61,6 +67,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormArchivosProcesados.resx">
+      <DependentUpon>FormArchivosProcesados.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormBuscar.resx">
       <DependentUpon>FormBuscar.cs</DependentUpon>
     </EmbeddedResource>
@@ -75,6 +84,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -88,6 +98,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\file1.png" />
+    <Content Include="Resources\folder.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

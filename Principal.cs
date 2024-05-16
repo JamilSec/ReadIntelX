@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ReadIntelX.Clases;
+using System;
 using System.Drawing;
 using System.Windows.Forms;
 using static ReadIntelX.Clases.Funciones;
@@ -8,6 +9,7 @@ namespace ReadIntelX
     public partial class Principal : Form
     {
         FormBuscar dialogoBuscar = new FormBuscar();
+        FormArchivosProcesados archivosProcesados = new FormArchivosProcesados();
         public Principal()
         {
             InitializeComponent();
@@ -21,10 +23,10 @@ namespace ReadIntelX
                     abrirArchivo();
                     return true;
                 case Keys.Control | Keys.B:
-                    Console.WriteLine("Comando B, Busca Archivos");
+                    abrirArchivosProcesados();
                     return true;
                 case Keys.Control | Keys.D:
-                    Console.WriteLine("Comando D, Abre Documentacion");
+                    AcercaDe();
                     return true;
             }
             return base.ProcessCmdKey(ref msg, keyData);
@@ -60,6 +62,24 @@ namespace ReadIntelX
                     lblPalabraBuscar.Text = dialogoBuscar.PalabraBuscada;
                 }
             }
+        }
+        private void buscarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            abrirArchivosProcesados();
+        }
+        private void abrirArchivosProcesados()
+        {
+            ImageList imageList = new ImageList();
+            imageList.Images.Add(Properties.Resources.folder);
+            imageList.Images.Add(Properties.Resources.file);
+
+            CargarRegistros(archivosProcesados.TvResultados, imageList);
+            archivosProcesados.ShowDialog();
+        }
+
+        private void acercaDeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AcercaDe();
         }
     }
 }

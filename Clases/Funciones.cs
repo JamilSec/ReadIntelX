@@ -130,6 +130,97 @@ namespace ReadIntelX.Clases
 
             string resultado = $"URL: {url}\nUsername: {username}\nPassword: {password}\n===============\n";
             File.AppendAllText(filePath, resultado);
+
+            string comboFileName = "combo.txt";
+            string comboFilePath = Path.Combine(subfolderPath, comboFileName);
+            string comboResultado = $"{username}:{password}\n";
+            File.AppendAllText(comboFilePath, comboResultado);
+        }
+        public static void CargarRegistros(TreeView treeView, ImageList imageList)
+        {
+            string folderPath = Path.Combine(Environment.CurrentDirectory, "Resultados");
+
+            if (Directory.Exists(folderPath))
+            {
+                treeView.Nodes.Clear();
+                treeView.ImageList = imageList;
+
+                DirectoryInfo rootDir = new DirectoryInfo(folderPath);
+                TreeNode rootNode = new TreeNode(rootDir.Name)
+                {
+                    Tag = rootDir,
+                    ImageIndex = 0,
+                    SelectedImageIndex = 0
+                };
+                treeView.Nodes.Add(rootNode);
+                CargarDirectorios(rootDir, rootNode);
+            }
+        }
+
+        private static void CargarDirectorios(DirectoryInfo dir, TreeNode node)
+        {
+            try
+            {
+                foreach (DirectoryInfo directory in dir.GetDirectories())
+                {
+                    TreeNode directoryNode = new TreeNode(directory.Name)
+                    {
+                        Tag = directory,
+                        ImageIndex = 0,
+                        SelectedImageIndex = 0
+                    };
+                    node.Nodes.Add(directoryNode);
+                    CargarDirectorios(directory, directoryNode);
+                }
+
+                foreach (FileInfo file in dir.GetFiles("*.txt"))
+                {
+                    TreeNode fileNode = new TreeNode(file.Name)
+                    {
+                        Tag = file,
+                        ImageIndex = 1,
+                        SelectedImageIndex = 1
+                    };
+                    node.Nodes.Add(fileNode);
+                }
+            }
+            catch (UnauthorizedAccessException ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        public static void AcercaDe() 
+        {
+            string message = @"IntelX Reader
+
+¿Qué es IntelX Reader?
+IntelX Reader es una aplicación de escritorio diseñada para ayudar a los usuarios a buscar y extraer información específica de archivos de texto contenidos dentro de directorios. Esta herramienta es especialmente útil para analizar grandes volúmenes de datos y encontrar información sensible de manera rápida y eficiente.
+
+Características Principales:
+- Selección de Directorio: Permite al usuario seleccionar un directorio que contiene varios archivos comprimidos y subdirectorios.
+- Búsqueda de Archivos Específicos: Busca archivos de texto específicos, como 'Passwords.txt', dentro de todos los subdirectorios del directorio seleccionado.
+- Extracción de Información: Extrae información específica de los archivos encontrados, como URLs, nombres de usuario y contraseñas.
+- Guardado de Resultados: Guarda los resultados en archivos de texto organizados por fecha en una carpeta denominada 'Resultados'.
+- Interfaz Intuitiva: Proporciona una interfaz gráfica de usuario (GUI) sencilla y fácil de usar.
+- Barra de Progreso: Muestra el progreso de la búsqueda y extracción de información.
+- Historial de Archivos Procesados: Permite visualizar un historial de los archivos procesados organizados por fecha y abrirlos directamente desde la aplicación.
+
+¿Quién puede beneficiarse?
+- Investigadores de Seguridad: Para analizar grandes volúmenes de datos en busca de información sensible.
+- Analistas de Datos: Para extraer información relevante de conjuntos de datos grandes y desorganizados.
+- Usuarios Avanzados: Para mantener registros organizados y acceder rápidamente a información específica dentro de archivos de texto.
+
+Cómo Usar IntelX Reader:
+1. Abrir la Aplicación: Inicie IntelX Reader desde su computadora.
+2. Seleccionar un Directorio: Utilice el menú 'Archivo' para seleccionar un directorio que desea analizar.
+3. Buscar Información: Ingrese el texto de interés en el cuadro correspondiente y haga clic en 'Iniciar'.
+4. Ver Progreso: Observe la barra de progreso y el contador de resultados mientras la aplicación procesa los archivos.
+5. Ver Resultados: Una vez completado, puede ver y abrir los resultados en la sección 'Archivos Procesados' del menú 'Ver'.
+6. Abrir Resultados: Haga clic en cualquier archivo en el historial para abrirlo y ver el contenido extraído.
+
+IntelX Reader facilita la tarea de encontrar y organizar información sensible en archivos de texto, proporcionando una solución eficiente y fácil de usar para profesionales y usuarios avanzados.";
+
+            MessageBox.Show(message, "Acerca de IntelX Reader", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }
