@@ -1,5 +1,5 @@
 # IntelX Reader
-
+![Logo](https://i.ibb.co/NCqybYP/Captura-de-pantalla-2024-05-16-011440.png)
 ## ¿Qué es IntelX Reader?
 
 IntelX Reader es una aplicación de escritorio diseñada para ayudar a los usuarios a buscar y extraer información específica de archivos de texto contenidos dentro de directorios. Esta herramienta es especialmente útil para analizar grandes volúmenes de datos y encontrar información sensible de manera rápida y eficiente.
